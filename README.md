@@ -20,12 +20,14 @@ Step 3
 Add New Relic and launch the application.
 
     pip install newrelic
-    newrelic-admin generate-config &lt;license-key&gt; newrelic.ini
+    newrelic-admin generate-config <license-key> newrelic.ini
     export NEW_RELIC_CONFIG_FILE=newrelic.ini 
     newrelic-admin run-python manage.py run_gunicorn
 
 Step 4
 -------
+Visit localhost:8000
+
 Fix the code / Solve as many of the Katas as you can. 
 
 Step 5
