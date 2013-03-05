@@ -1,3 +1,4 @@
 # Local development dependencies go here
 -r base.txt
 newrelic
+gunicorn

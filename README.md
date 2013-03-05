@@ -7,26 +7,26 @@ Step 1
 -------
 Get the code. The code is waiting to be forked on [github](https://github.com/newrelic/newrelic-python-kata)
 
-Load the sample DB: 
-
-Postgressions instructions.
-
 Step 2
 -------
-Deploy your app to Heroku and load the database there
+Create a virtualenv and install the dependencies
 
-    heroku apps:create
-    heroky addons:add pgbackups:plus newrelic:standard memcache:5mb
-    heroku pgbackups:restore DATABASE 'http://newrelic-ruby-kata.herokuapp.com/sample-data.dump'
-
+    virtualenv venv
+    source venv/bin/activate
+    pip install -r requirements.txt
 
 Step 3
 -------
-You can watch a [video on getting started](http://newrelic.com/resources/training) with the New Relic agent to help get you started. The New Relic agent will help you find and solve the performance issues in this application as well as help you see the complete impact of your changes.
+Add New Relic and launch the application.
+
+    pip install newrelic
+    newrelic-admin generate-config &lt;license-key&gt; newrelic.ini
+    export NEW_RELIC_CONFIG_FILE=newrelic.ini 
+    newrelic-admin run-python manage.py run_gunicorn
 
 Step 4
 -------
-Fix the code / Solve as many of the Katas as you can. There are seven distinct Katas in this application that can be torn apart and fixed by using your awesome dev abilities and the deep metrics that New Relic provides.
+Fix the code / Solve as many of the Katas as you can. 
 
 Step 5
 -------
