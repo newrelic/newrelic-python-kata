@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block content%}
+  <div class="hero-unit" style="margin-top: -1em; padding-bottom: 0.7em;">
+  <style>
+  .hero-unit p { line-height: 140%; }
+  </style>
+    <h1 style="margin-top: -0.5em;">New Relic Python Kata</h1>
+    <p>Code Kata is a term coined by Dave Thomas, co-author of the book The Pragmatic Programmer, 
+  in a nod to the Japanese concept of kata in the martial arts. A code kata is an exercise in 
+  programming which helps a programmer hone their skills through practice and repetition.</p>
+    <p>The goal of this Kata is to get your mind wired into performance driven development, 
+  to reinforce your skills as a user of <a href="http://newrelic.com">New Relic</a>.</p>
+    <p>Of course the code in some areas of this application is intentionally bad, but what fun would this 
+  be if everything worked the way it should?</p>
+    <p><a href="http://codekata.pragprog.com/" class="btn btn-primary btn-large">Learn more about 
+  Code Katas &raquo;</a></p>
+    
+  </div>
+
+  <div class="row">
+    <div class="span4">
+      <h2>Step 1</h2>
+      <p>Get the code. Using your <a href="http://github.com">github</a> account, fork
+  the <a href="https://github.com/newrelic/newrelic-python-kata">newrelic-python-kata</a> repo
+  and then clone it onto your machine.</p>
+    <p><a class="btn" href="https://github.com/newrelic/newrelic-python-kata/">Fork &amp; Clone! &raquo;</a></p>
+  </div>
+    <div class="span4">
+      <h2>Step 2</h2>
+      <p>Create a virtualenv and install the dependencies.</p>
+      <pre>virtualenv venv
+source venv/bin/activate
+pip install -r requirements.txt
+</pre>
+  </div>
+    <div class="span4">
+      <h2>Step 3</h2>
+      <p>Add New Relic and launch the application.
+          The New Relic agent will help you find and solve the performance issues in this 
+		application as well as help you see the complete impact of your changes.
+      </p>
+      <pre>pip install newrelic
+newrelic-admin generate-config &lt;license-key&gt; newrelic.ini
+export NEW_RELIC_CONFIG_FILE=newrelic.ini 
+newrelic-adming run-python manage.py run_gunicorn</pre>
+  </div>
+<div class="row">
+    <div class="span4">
+      <h2>Step 4</h2>
+        <p>Create and populate the sample database.</p>
+        <pre>python populate_db.py</pre>
+    </div>
+    <div class="span4">
+      <h2>Step 5</h2>
+      <p>Fix the code / Solve as many of the Katas as you can. There are 
+  seven<!-- TODO --> distinct Katas in 
+  this application that can be torn apart and fixed by using your awesome dev 
+  abilities and the deep metrics that New Relic provides.</p>
+  <p><ol>
+    <li>Generate traffic a.k.a. click around</li>
+    <li>Discover a slow page</li>
+    <li>Investigate the problem (using New Relic)</li>
+    <li>Resolve with code changes</li>
+    <li>Push the revised code to Heroku.<br><em style="margin-left: 1em;">Repeat...</em></li>
+    </ol>
+    </p>
+    </div>
+    <div class="span4">
+      <h2>Step 6</h2>
+      <p>Let us know how you did, what you liked or disliked, 
+          what helped you find problems or what were the challenges, 
+          what you like about New Relic and what you don't - we just want to hear from you 
+      and see what we can do to get better.  
+    </p><p>
+          We'll even send you something for demonstrating your geek super powers when 
+      you complete the Kata - just provide us with your thoughts 
+      and a link to your forked repo (with your answers).</p>
+      <p><a class="btn" href="https://support.newrelic.com/home">Tell us! &raquo;</a></p>
+    </div>
+  </div>
+{% endblock %}
