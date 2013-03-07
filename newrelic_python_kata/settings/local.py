@@ -8,7 +8,7 @@ from base import *
 
 ########## DEBUG CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#debug
-DEBUG = True
+DEBUG = False
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-debug
 TEMPLATE_DEBUG = DEBUG
@@ -16,24 +16,29 @@ TEMPLATE_DEBUG = DEBUG
 
 INSTALLED_APPS += ('gunicorn',)
 
-########## EMAIL CONFIGURATION
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#email-backend
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-########## END EMAIL CONFIGURATION
-
 
 ########## DATABASE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': normpath(join(DJANGO_ROOT, 'default.db')),
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
-    }
-}
+#DATABASES = {
+    #'default': {
+        #'ENGINE': 'django.db.backends.sqlite3',
+        #'NAME': normpath(join(DJANGO_ROOT, 'default.db')),
+        #'USER': '',
+        #'PASSWORD': '',
+        #'HOST': '',
+        #'PORT': '',
+    #}
+#}
+#DATABASES = {
+    #'default': {
+        #'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        #'NAME': 'ddcvf9qgum3id3',
+        #'USER': 'fogurmzjhpoapl',
+        #'PASSWORD': 'CaS7m7WiJbKoJKi58Bhkplf8wI',
+        #'HOST': 'ec2-54-243-229-57.compute-1.amazonaws.com',
+        #'PORT': '5432',
+    #}
+#}
 ########## END DATABASE CONFIGURATION
 
 

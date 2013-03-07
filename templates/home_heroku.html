@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block content%}
+{% block content %}
   <div class="hero-unit" style="margin-top: -1em; padding-bottom: 0.7em;">
   <style>
   .hero-unit p { line-height: 140%; }
@@ -27,28 +27,32 @@
   </div>
     <div class="span4">
       <h2>Step 2</h2>
-      <p>Create a virtualenv and install the dependencies.</p>
+      <p>Create a virtualenv and a heroku app (Use the <a href="https://toolbelt.heroku.com/">Heroku toolbelt</a>.)</p>
       <pre>virtualenv venv
 source venv/bin/activate
 pip install -r requirements.txt
+heroku apps:create
+git push heroku master
 </pre>
   </div>
     <div class="span4">
       <h2>Step 3</h2>
-      <p>Add New Relic and launch the application.
+      <p>Add New Relic to your Heroku app.
           The New Relic agent will help you find and solve the performance issues in this 
 		application as well as help you see the complete impact of your changes.
       </p>
-      <pre>pip install newrelic
-newrelic-admin generate-config &lt;license-key&gt; newrelic.ini
-export NEW_RELIC_CONFIG_FILE=newrelic.ini 
-newrelic-admin run-python manage.py run_gunicorn</pre>
+      <pre>heroku addons:add newrelic</pre>
+      Edit your 'Procfile' and replace the contents with the following line.
+      <pre>web: newrelic-admin run-program python manage.py run_gunicorn -b "0.0.0.0:$PORT"</pre>
   </div>
 <div class="row">
     <div class="span4">
       <h2>Step 4</h2>
-        <p>Create and populate the sample database.</p>
-        <pre>python populate_db.py</pre>
+        <p>Populate the sample database.</p>
+        <pre>heroku addons:add heroku-postgresql:dev
+heroku addons:add pgbackups:plus
+  
+heroku pgbackups:restore DATABASE 'http://newrelic-python-kata.herokuapp.com/sample-data.dump'</pre>
     </div>
     <div class="span4">
       <h2>Step 5</h2>

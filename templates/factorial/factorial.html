@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<pre>
+    Kata: Runtime errors are unpleasant for user experience. 
+
+    This page will calculate factorial for a number. Try some negative numbers
+    and see what happens. 
+
+    Most of the time the developer doesn't know about it until a complaint is
+    raised by a user. Use newrelic to track down these errors proactively and
+    fix them.
+
+    Hint: Check under Events -> Errors.
+</pre>
+
+<h1>Compute Factorial</h1>
+<form action="/kata3/" method="post">{% csrf_token %}
+  {{ form.as_p }}
+  <input type="SUBMIT" value="calculate" />
+</form>
+
+Result = {{ res }}
+
+{% endblock %}

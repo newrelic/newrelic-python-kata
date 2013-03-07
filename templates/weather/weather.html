@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+{% if forecasts %}
+<table class="table table-bordered"><tr>
+    <th>City</th>
+    <th>Forecast</th>
+  </tr>
+  {% for f in forecasts %}
+  <tr>
+    <td valign="top">{{ f.location.city }}</td>
+    <td>
+      <table class="table table-bordered">
+        <tr>
+          <td valign="top">Conditions</td>
+          <td colspan="2">
+            {{ f.condition.text }}<br/>
+            Temp: {{ f.condition.temp }} {{ f.units.temperature }}<br/>
+            Wind: {{ f.wind.speed }} {{ f.units.speed }}
+          </td>
+        </tr>
+        <tr>
+          <td>Sunrise/Sunset</td>
+          <td>{{ f.astronomy.sunrise }}</td>
+          <td>{{ f.astronomy.sunset }}</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+    <p>No forecast.</p>
+{% endif %}
+{% endblock %}

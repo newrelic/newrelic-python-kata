@@ -2,8 +2,16 @@
 
 
 from os.path import abspath, basename, dirname, join, normpath
+from os import environ
 from sys import path
 
+import dj_database_url
+from django.core.exceptions import ImproperlyConfigured
+
+def get_db_url(filename='db_url.txt'):
+    with open(filename) as f:
+        db_url = f.readline().strip()
+        return db_url
 
 ########## PATH CONFIGURATION
 # Absolute filesystem path to the Django project directory:
@@ -29,11 +37,13 @@ DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 ########## END DEBUG CONFIGURATION
 
+ALLOWED_HOSTS = ['*']
+
 
 ########## MANAGER CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#admins
 ADMINS = (
-    ('Your Name', 'your_email@example.com'),
+    #('Your Name', 'your_email@example.com'),
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#managers
@@ -43,16 +53,9 @@ MANAGERS = ADMINS
 
 ########## DATABASE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.',
-        'NAME': '',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
-    }
-}
+db_url = get_db_url()
+DATABASES = {'default': dj_database_url.parse(db_url)}
+DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
 ########## END DATABASE CONFIGURATION
 
 
@@ -88,7 +91,7 @@ MEDIA_URL = '/media/'
 
 ########## STATIC FILE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-root
-STATIC_ROOT = normpath(join(SITE_ROOT, 'assets'))
+STATIC_ROOT = normpath(join(SITE_ROOT, 'static'))
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
 STATIC_URL = '/static/'
@@ -186,11 +189,11 @@ DJANGO_APPS = (
 
 THIRD_PARTY_APPS = (
     # Database migration helpers:
-    'south',
 )
 
 # Apps specific for this project go here.
-LOCAL_APPS = ('query',
+LOCAL_APPS = ('employees',
+        'factorial',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
