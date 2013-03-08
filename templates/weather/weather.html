@@ -1,5 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
+<pre>
+    Kata: It's faster to access the data locally.
+
+    This page displays the weather information for a bunch of cities. 
+    It is using the pywapi module to make calls to Yahoo weather. 
+
+    Check transaction traces and find out what's the bottleneck. 
+
+    Hint: Weather doesn't change every 10mins. <href="https://docs.djangoproject.com/en/dev/topics/cache/">Cache</a>
+</pre>
 {% if forecasts %}
 <table class="table table-bordered"><tr>
     <th>City</th>

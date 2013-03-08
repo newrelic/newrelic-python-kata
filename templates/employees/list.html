@@ -1,5 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
+<pre>
+    Kata: How many database calls does it take to change a light bulb?
+
+    This page will display the details of 20 employees. Guess how many database calls are made.
+    Frameworks do implicit database calls all the time. How can you keep an eye on it? 
+     
+    Try to load this page (only this page) 5 - 10 times. 
+    Under Webtransactions -> Look for App server transaction traces.
+
+    Hint: <a href="https://docs.djangoproject.com/en/dev/ref/models/querysets/#prefetch-related">Prefetching</a>. 
+</pre>
 {% if employees %}
     <ul>
     {% for employee in employees %}

@@ -1,5 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
+<pre>
+    Kata: Templates are dumb. Let's keep it that way.
+
+    This page lists all the names that start with 'X'.
+     
+    Under Webtransactions -> Look for App server transaction traces. Where is the time spent?
+
+    Hint: <a href="https://docs.djangoproject.com/en/dev/ref/models/querysets/#filter">Database Filtering</a>. 
+</pre>
 {% if employees %}
     <ul>
     {% for employee in employees %}
