@@ -15,7 +15,7 @@ def get_db_url(filename='db_url.txt'):
 
 ########## PATH CONFIGURATION
 # Absolute filesystem path to the Django project directory:
-DJANGO_ROOT = dirname(dirname(abspath(__file__)))
+DJANGO_ROOT = dirname(abspath(__file__))
 
 # Absolute filesystem path to the top-level project folder:
 SITE_ROOT = dirname(DJANGO_ROOT)
@@ -188,12 +188,13 @@ DJANGO_APPS = (
 )
 
 THIRD_PARTY_APPS = (
-    # Database migration helpers:
+    'gunicorn',
 )
 
 # Apps specific for this project go here.
 LOCAL_APPS = ('employees',
         'factorial',
+        'weather',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -233,8 +234,7 @@ LOGGING = {
 }
 ########## END LOGGING CONFIGURATION
 
-
 ########## WSGI CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#wsgi-application
-WSGI_APPLICATION = 'wsgi.application'
+WSGI_APPLICATION = 'newrelic_python_kata.wsgi.application'
 ########## END WSGI CONFIGURATION

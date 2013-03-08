@@ -11,11 +11,13 @@ def setup_postgression():
         f.write(db_url)
 
 def run_django_commands(*args):
+    environ.setdefault("DJANGO_SETTINGS_MODULE", "newrelic_python_kata.settings")
     from django.core.management import call_command
     for command in args:
         call_command(command, interactive=False)
 
 def populate_db():
+    environ.setdefault("DJANGO_SETTINGS_MODULE", "newrelic_python_kata.settings")
     from employees.models import Employee, BioData, Payroll
     with open('names.txt') as f: 
         es = []
@@ -41,3 +43,6 @@ if __name__ == '__main__':
     run_django_commands('syncdb')
     print 'INFO: Populating the database.'
     populate_db()
+    print 'INFO: All done!'
+    print 'INFO: Start your server.'
+    print 'newrelic-adming run-python manage.py run_gunicorn'

@@ -27,7 +27,7 @@
     <div class="span4">
       <h2>Step 2</h2>
       <p>Create a virtualenv and install the dependencies.</p>
-      <pre>$ virtualenv venv</pre>
+      <pre>$ python virtualenv.py venv</pre>
 <pre>
 $ source venv/bin/activate
 </pre>
@@ -37,38 +37,34 @@ $ pip install -r requirements.txt
   </div>
     <div class="span4">
       <h2>Step 3</h2>
-      <p>Add New Relic and launch the application.
-          The New Relic agent will help you find and solve the performance issues in this 
-		application as well as help you see the complete impact of your changes.
-      </p>
+      <p>Install Newrelic agent.</p>
 <pre>$ pip install newrelic</pre>
+<p>Get the license key from the right side-bar on this <a href='https://newrelic.com/docs/help'>page</a> and generate the config file.
+Edit the file to suit your needs. (Set transaction_tracer.transaction_threshold to 0.2)</p>
 <pre>
 $ newrelic-admin generate-config &lt;license&gt; newrelic.ini
 </pre>
 <pre>
 $ export NEW_RELIC_CONFIG_FILE=newrelic.ini
 </pre>
-<pre>
-$ newrelic-admin run-python manage.py run_gunicorn
-</pre>
   </div>
 <div class="row">
     <div class="span4">
       <h2>Step 4</h2>
-        <p>Create and populate the sample database.</p>
-        <pre>$ python populate_db.py</pre>
+        <p>Initialize the database.</p>
+        <pre>$ python initialize_db.py</pre>
+        <p>Deploy the app.</p>
+        <pre>$ newrelic-admin run-python manage.py run_gunicorn</pre>
     </div>
     <div class="span4">
       <h2>Step 5</h2>
       <p>Fix the code / Solve as many of the Katas as you can. There are 
-  seven<!-- TODO --> distinct Katas in 
-  this application that can be torn apart and fixed by using your awesome dev 
-  abilities and the deep metrics that New Relic provides.</p>
+  four distinct Katas in this application (check the top bar) each with some hints on their respective pages.</p>
   <p><ol>
-    <li>Generate traffic a.k.a. click around</li>
-    <li>Discover a slow page</li>
-    <li>Investigate the problem (using New Relic)</li>
-    <li>Resolve with code changes</li>
+    <li>Generate traffic a.k.a. click around.</li>
+    <li>Discover a slow page.</li>
+    <li>Investigate the problem.</li>
+    <li>Resolve with code changes.</li>
     <li>Re-deploy.<br><em style="margin-left: 1em;">Repeat...</em></li>
     </ol>
     </p>
