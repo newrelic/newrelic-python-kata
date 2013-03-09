@@ -51,8 +51,14 @@
                       <li><a href="{% url 'weather' %}">External Calls</a></li>
                   </ul>
               </li>
-              <li><a href="#about">About</a></li>
-            </ul>
+              <li class="dropdown">
+	      <a class="dropdown-toggle" data-toggle="dropdown" href="#">About <b class="caret"></b></a>
+		  <ul class="dropdown-menu">
+		      <li><a href="http://heroku.com">Heroku</a></li>
+		      <li><a href="http://newrelic.com">New Relic</a></li>
+	          </ul>
+	      </li>   
+
           </div><!--/.nav-collapse -->
         </div>
       </div>
