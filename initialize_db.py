@@ -45,4 +45,4 @@ if __name__ == '__main__':
     populate_db()
     print 'INFO: All done!'
     print 'INFO: Start your server.'
-    print 'newrelic-adming run-python manage.py run_gunicorn'
+    print 'newrelic-admin run-python manage.py run_gunicorn'
