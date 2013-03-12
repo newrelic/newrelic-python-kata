@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 
 def list(request):
-    employees = Employee.objects.all()[:20]
+    employees = Employee.objects.all()[:50]
     return render(request, 'employees/list.html', {'employees': employees})
 
 def filtering(request):
