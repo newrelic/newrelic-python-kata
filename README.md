@@ -22,27 +22,32 @@ Add New Relic and launch the application.
 
      pip install newrelic     
      newrelic-admin generate-config <license-key> newrelic.ini
+
 Edit the newrelic.ini file to suit your needs.
 Set the "transaction_tracer.transaction_threshold" to 0.2
+
      export NEW_RELIC_CONFIG_FILE=newrelic.ini 
      
 Step 4
 ------
 Initialize the database.
+
      python initialize_db.py
 
-Deploy the app.
+Start the app.
+
      newrelic-admin run-python manage.py run_gunicorn
 
 Step 5
 -------
 Fix the code / Solve as many of the Katas as you can. 
-Visit localhost:8000
-Generate traffic a.k.a. click around.
-Discover a slow page.
-Investigate the problem.
-Resolve with code changes.
-Restart application.
+1. Access the application http://localhost:8000
+2. Generate traffic a.k.a. click around.
+3. Discover a slow page.
+4. Investigate the problem.
+5. Resolve with code changes.
+6. Restart application.
+     Repeat...
 
 Step 6
 -------
