@@ -11,25 +11,39 @@ Step 2
 -------
 Create a virtualenv and install the dependencies
 
-    virtualenv venv
-    source venv/bin/activate
-    pip install -r requirements.txt
+     cd newrelic-python-kata
+     python virtualenv.py venv
+     source venv/bin/activate
+     pip install -r requirements.txt
 
 Step 3
 -------
 Add New Relic and launch the application.
 
-    pip install newrelic
-    newrelic-admin generate-config <license-key> newrelic.ini
-    export NEW_RELIC_CONFIG_FILE=newrelic.ini 
-    newrelic-admin run-python manage.py run_gunicorn
-
+     pip install newrelic     
+     newrelic-admin generate-config <license-key> newrelic.ini
+Edit the newrelic.ini file to suit your needs.
+Set the "transaction_tracer.transaction_threshold" to 0.2
+     export NEW_RELIC_CONFIG_FILE=newrelic.ini 
+     
 Step 4
--------
-Visit localhost:8000
+------
+Initialize the database.
+     python initialize_db.py
 
-Fix the code / Solve as many of the Katas as you can. 
+Deploy the app.
+     newrelic-admin run-python manage.py run_gunicorn
 
 Step 5
+-------
+Fix the code / Solve as many of the Katas as you can. 
+Visit localhost:8000
+Generate traffic a.k.a. click around.
+Discover a slow page.
+Investigate the problem.
+Resolve with code changes.
+Restart application.
+
+Step 6
 -------
 Let us know how you did, what you liked or disliked, what helped you find problems or what were the challenges, what you like about New Relic and what you don't - we just want to hear from you and see what we can do to get better. We'll even send you something for demonstrating your geek super powers when you complete the Kata - just provide us with your [thoughts and a link to your forked repo](https://support.newrelic.com/home).
