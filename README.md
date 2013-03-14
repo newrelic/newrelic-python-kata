@@ -9,7 +9,7 @@ Get the code. The code is waiting to be forked on [github](https://github.com/ne
 
 Step 2
 -------
-Create a virtualenv and install the dependencies
+Create a virtualenv and install the dependencies.
 
      cd newrelic-python-kata
      python virtualenv.py venv
@@ -18,13 +18,15 @@ Create a virtualenv and install the dependencies
 
 Step 3
 -------
-Add New Relic and launch the application.
+Install Newrelic agent.
 
      pip install newrelic     
      newrelic-admin generate-config <license-key> newrelic.ini
 
-Edit the newrelic.ini file to suit your needs.
+Open the newrelic.ini file for editing.
 Set the "transaction_tracer.transaction_threshold" to 0.2
+
+Set the NEW_RELIC_CONFIG_FILE environment variable.
 
      export NEW_RELIC_CONFIG_FILE=newrelic.ini 
      
