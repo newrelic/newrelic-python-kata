@@ -40,11 +40,12 @@ $ pip install -r requirements.txt
       <h2>Step 3</h2>
       <p>Install Newrelic agent.</p>
 <pre>$ pip install newrelic</pre>
-<p>Get the license key from the right side-bar on this <a href='https://newrelic.com/docs/help'>page</a> and generate the config file.
-Edit the file to suit your needs. (Set transaction_tracer.transaction_threshold to 0.2)</p>
+<p>Get the license key from the right side-bar on this <a href='https://newrelic.com/docs/help'>page</a> and generate the config file.</p>
 <pre>
 $ newrelic-admin generate-config &lt;license&gt; newrelic.ini
 </pre>
+<p>Edit the file to suit your needs. (Set transaction_tracer.transaction_threshold to 0.2)</p>
+<p>Set the NEW_RELIC_CONFIG_FILE environment variable.</p>
 <pre>
 $ export NEW_RELIC_CONFIG_FILE=newrelic.ini
 </pre>
