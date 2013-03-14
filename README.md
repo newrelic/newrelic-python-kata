@@ -43,12 +43,14 @@ Start the app.
 Step 5
 -------
 Fix the code / Solve as many of the Katas as you can. 
+
 1. Access the application http://localhost:8000
 2. Generate traffic a.k.a. click around.
 3. Discover a slow page.
 4. Investigate the problem.
 5. Resolve with code changes.
 6. Restart application.
+
      Repeat...
 
 Step 6
