@@ -3,6 +3,6 @@ requests
 gunicorn
 pywapi
 dj-database-url
-boom
+#boom
 psycopg2
 newrelic
